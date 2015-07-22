@@ -1,7 +1,9 @@
+import com.sun.istack.internal.NotNull;
+
 import java.math.BigInteger;
 
 
-final class BigFraction extends Number {
+final class BigFraction extends Number implements Comparable<BigFraction> {
 
     private BigInteger numerator;
     private BigInteger denominator;
@@ -119,6 +121,7 @@ final class BigFraction extends Number {
         return this.compareTo(frac) == 0;
     }
 
+    @Override
     public int compareTo(BigFraction frac) {
         BigInteger t = this.getNumerator().multiply(frac.getDenominator());
         BigInteger f = frac.getNumerator().multiply(this.getDenominator());
